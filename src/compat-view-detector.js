@@ -10,8 +10,8 @@
 		// compatibility view by testing for the existence of both the Trident token and the IE7 version number.
 		var isInCompatibilityView = function()
 		{
-			return window.navigator.userAgent.indexOf("Trident/") != -1 &&
-				window.navigator.userAgent.indexOf("MSIE 7") != -1;
+			return window.navigator.userAgent.indexOf("Trident/") !== -1 &&
+				window.navigator.userAgent.indexOf("MSIE 7") !== -1;
 		}
 
 		// Load the error template using a simple XmlHttpRequest and append it to the body.
@@ -20,6 +20,7 @@
 		var showErrorTemplate = function(compatViewDetectDirectory, templateUrl)
 		{
 
+			var xmlHttp;
 			if (window.xmlHttpRequest)
 			{
 			    xmlHttp = new xmlHttpRequest();
@@ -32,7 +33,7 @@
 			xmlHttp.onreadystatechange = function()
 			{
 				// Template has finished loading.
-				if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+				if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
 				{
 					document.body.innerHTML += xmlHttp.responseText.replace("%%BASE_URL%%", compatViewDetectDirectory);
 				}
@@ -57,17 +58,17 @@
 		// to save having to rely on external libraries
 		if(document.addEventListener)
 		{
-			window.addEventListener('load', detect);
+			window.addEventListener("load", detect);
 		}
 		else
 		{
-			window.attachEvent('onload', detect);
+			window.attachEvent("onload", detect);
 		}
 
 	};
 
 	// We only need to test IE
-	if (window.navigator.appName == "Microsoft Internet Explorer")
+	if (window.navigator.appName === "Microsoft Internet Explorer")
 	{
 		// Determine the path to this script
 		// Scripts are evaluated before they are placed in the DOM, so the last script element in the document
