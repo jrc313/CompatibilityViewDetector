@@ -1,5 +1,6 @@
 (function()
 {
+	"use strict";
 
 	var CompatibilityViewDetect = function(compatViewDetectDirectory)
 	{
@@ -56,7 +57,7 @@
 
 		// Add the detect method to the window's load event. We're using the browser's methods to add event listeners
 		// to save having to rely on external libraries
-		if(document.addEventListener)
+		if(window.addEventListener)
 		{
 			window.addEventListener("load", detect);
 		}
