@@ -22,7 +22,7 @@
 		{
 
 			var xmlHttp;
-			if (window.xmlHttpRequest)
+			if (window.XMLHttpRequest)
 			{
 			    xmlHttp = new XMLHttpRequest();
 			}
