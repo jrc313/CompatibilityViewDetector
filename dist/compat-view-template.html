@@ -1,0 +1,46 @@
+<style>
+
+#compatibilityModeContainer, #compatibilityModeLightsOut
+{
+	position: absolute;
+	z-index: 1000;
+	zoom: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#compatibilityModeLightsOut
+{
+	filter: alpha(opacity=50);
+	background-color: #fff;
+}
+
+
+#compatibilityModeError
+{
+	position: relative;
+	z-index: 2000;
+	width: 490px;
+	margin: 5px auto;
+	padding: 10px 120px 10px 10px;
+	background-color: #ffc;
+	border: 2px solid #f66;
+	background-image: url(%%BASE_URL%%/compat-view-example.png);
+	background-repeat: no-repeat;
+	background-position: 515px center;
+}
+
+</style>
+<div id="compatibilityModeLightsOut">&nbsp;</div>
+<div id="compatibilityModeContainer">
+	<div id="compatibilityModeError">
+		<p>
+			Your browser appears to be running in compatibility view which will prevent this site from functioning correctly.
+		</p>
+		<p>
+			Please click the blue torn page icon in the address bar to turn it off.
+		</p>
+	</div>
+</div>
