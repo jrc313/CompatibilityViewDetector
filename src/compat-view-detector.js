@@ -2,7 +2,7 @@
 {
 	"use strict";
 
-	var CompatibilityViewDetect = function(compatViewDetectDirectory)
+	var compatibilityViewDetect = function(compatViewDetectDirectory)
 	{
 		// Test if the browser is in compatibility view.
 		// When IE8 and above are in compatibility view the user agent is modified to present it as IE7.
@@ -13,7 +13,7 @@
 		{
 			return window.navigator.userAgent.indexOf("Trident/") !== -1 &&
 				window.navigator.userAgent.indexOf("MSIE 7") !== -1;
-		}
+		};
 
 		// Load the error template using a simple XmlHttpRequest and append it to the body.
 		// The template can include a %%BASE_URL%% variable if it needs to refer to other assets
@@ -24,7 +24,7 @@
 			var xmlHttp;
 			if (window.xmlHttpRequest)
 			{
-			    xmlHttp = new xmlHttpRequest();
+			    xmlHttp = new XMLHttpRequest();
 			}
 			else
 			{
@@ -38,11 +38,11 @@
 				{
 					document.body.innerHTML += xmlHttp.responseText.replace("%%BASE_URL%%", compatViewDetectDirectory);
 				}
-			}
+			};
 
 			xmlHttp.open("GET", compatViewDetectDirectory + "/" + templateUrl, true);
 			xmlHttp.send();
-		}
+		};
 
 		// Run the test
 		var detect = function()
@@ -51,7 +51,7 @@
 			{
 				showErrorTemplate(compatViewDetectDirectory, templateUrl);
 			}
-		}
+		};
 
 		var templateUrl = "compat-view-template.html";
 
@@ -80,7 +80,7 @@
 		var scriptDirectory = scriptPath.substr(0, scriptPath.lastIndexOf("/"));
 
 		// Execute the test
-		CompatibilityViewDetect(scriptDirectory);
+		compatibilityViewDetect(scriptDirectory);
 	}
 
 })();
