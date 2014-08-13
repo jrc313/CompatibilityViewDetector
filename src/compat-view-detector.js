@@ -12,7 +12,8 @@
 		var isInCompatibilityView = function()
 		{
 			return window.navigator.userAgent.indexOf("Trident/") !== -1 &&
-				window.navigator.userAgent.indexOf("MSIE 7") !== -1;
+				(window.navigator.userAgent.indexOf("MSIE 7") !== -1 ||
+					document.documentMode < 8) ;
 		};
 
 		// Load the error template using a simple XmlHttpRequest and append it to the body.
